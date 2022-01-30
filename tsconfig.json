@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    // 项目中的绝对路径会去 src 下面找文件
+    "baseUrl": "./src",
     "target": "es5",
     "lib": [
       "dom",
