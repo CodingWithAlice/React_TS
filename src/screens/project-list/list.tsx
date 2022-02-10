@@ -1,5 +1,18 @@
+import { Users } from "./search-panel";
+
+interface Project {
+  id: number;
+  name: string;
+  personId: string;
+  pin: boolean;
+  organization: string;
+}
+interface ListProps {
+  list: Project[];
+  users: Users[];
+}
 // 组件1：表格
-export const List = ({list, users}) => {
+export const List = ({list, users}: ListProps) => {
   return <table>
     <thead>
       <tr>

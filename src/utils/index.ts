@@ -5,17 +5,20 @@ import { useEffect, useState } from "react";
 /**
  * 
  */
-export const isFalsy = (value) => value === 0 ? false : !value;
+export const isFalsy = (value: any) => value === 0 ? false : !value;
 
 /**
  * 删除对象中值为空的项
  */
-export const cleanObject = (object) => {
+export const cleanObject = (object: object) => {
   // 等价于 Object.assign({}, object)
   const result = {...object};
   Object.keys(result).forEach(key => {
+    // 这里涉及到泛型的概念，暂时略过
+    // @ts-ignore
     const value = result[key];
     if(isFalsy(value)) {
+      // @ts-ignore
       delete result[key]
     }
   })
@@ -25,7 +28,7 @@ export const cleanObject = (object) => {
 /**
  * 写一个页面中只执行一次的 custom hook
  */
-export const useMount = (callback) => {
+export const useMount = (callback: () => void) => {
   useEffect(() => {
     callback()
   }, [])
@@ -34,7 +37,7 @@ export const useMount = (callback) => {
 /**
  * 写一个防抖 hook debounce
  */
-export const useDebounce = ((value, delay) => {
+export const useDebounce = ((value: any, delay?: number) => {
   const [debounceValue, setDebounceValue] = useState(value);
 
   useEffect(() => {

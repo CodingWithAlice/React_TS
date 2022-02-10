@@ -16,7 +16,7 @@ export const ProjectListScreen = () => {
   const [list, setList] = useState([]);
   // 负责人也是一个列表
   const [users, setUsers] = useState([]);
-  const debounceParam = useDebounce(param, 2000);
+  const debounceParam = useDebounce(param, 300);
   // 当 param 中的数据发生变化时，页面应该请求接口，按照参数获取列表数据
   useEffect(() => {
     fetch(`${apiURL}/projects?${qs.stringify(cleanObject(debounceParam))}`).then(async response => {
