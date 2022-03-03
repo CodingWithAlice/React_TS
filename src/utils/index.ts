@@ -50,3 +50,7 @@ export const useDebounce = <V>(value: V, delay?: number)=> {
 
   return debounceValue;
 }
+
+export const useArray = () => {
+  
+}
