@@ -8,13 +8,13 @@ export const TsReactTest = () => {
   const {value, clear, removeIndex, add} = useArray(persons);
   useMount(() => {
     // 期待报错 Property 'notExist' does not exist on type '{name: string; age: number;}'
-    console.log(value.notExist);
+    // console.log(value.notExist);
     
     //期待报错 Property 'age' is missing in type '{name: string;}' but required in type '{name: string; age: number;}'
-    add({name: 'Sunny'});
+    // add({name: 'Sunny'});
 
     // 期待报错 Argument of type 'string' is not assignable to parameter of type 'number'
-    removeIndex('123');
+    // removeIndex('123');
   });
   return (
     <div>
@@ -27,7 +27,7 @@ export const TsReactTest = () => {
 
       {/* 列表 */}
       {value.map((person: {age: number, name:string}, index:number)=> (
-        <div>
+        <div key={index}>
           <span>{index}</span>
           <span>{person.name}</span>
           <span>{person.age}</span>
